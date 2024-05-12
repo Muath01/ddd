@@ -8,6 +8,46 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../lib/getScrollAnimation";
 import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
 
+const reviews = [
+  {
+    id: 1,
+    src: "https://randomuser.me/api/portraits/women/31.jpg",
+    name: "Sophie Starr",
+    description: `I recently took the Qtink IQ Test, and I must say it was an insightful experience. The questions were challenging yet engaging, providing a thorough evaluation of cognitive abilities. The test interface was user-friendly, making the entire process seamless. I appreciate the detailed results, which gave me a comprehensive understanding of my strengths. Highly recommended for those looking to gain insights into their intellectual capabilities!`,
+  },
+  {
+    id: 2,
+    src: "https://randomuser.me/api/portraits/women/89.jpg",
+    name: "Rachel ",
+    description: `The Qtink IQ Test exceeded my expectations. The variety of question types ensured a comprehensive evaluation, and the time constraints added an element of challenge. I found the results to be accurate and detailed, providing valuable insights into different cognitive aspects. The test is suitable for anyone seeking a reliable and informative assessment of their intellectual abilities.`,
+  },
+  {
+    id: 3,
+    src: "https://randomuser.me/api/portraits/women/41.jpg",
+    name: "Hana Slim",
+    description: `Taking the Qtink IQ Test was a worthwhile experience. The questions were thought-provoking and covered a wide range of cognitive abilities. The test structure was well-designed, and the time management aspect added a sense of urgency. The results were presented in a clear and understandable format, providing valuable insights into my cognitive strengths. I recommend this test for anyone interested in understanding their intellectual potential.`,
+  },
+  {
+    id: 4,
+    src: "https://randomuser.me/api/portraits/men/61.jpg",
+    name: "Alex Rodriguez",
+    description: `I'm impressed with the thoroughness of the assessment. The questions were diverse and challenging.`,
+  },
+  {
+    id: 5,
+    src: "https://randomuser.me/api/portraits/men/91.jpg",
+    name: "Michael Johnson",
+    description: `I recommend the Qtink IQ Test for anyone looking for a comprehensive and reliable assessment of their cognitive abilities.`,
+  },
+
+  {
+    id: 10,
+    src: "https://randomuser.me/api/portraits/men/92.jpg",
+    name: "Chris Lee",
+    description: `I've always thought that Online IQ questions were unreliable, but because of Qtink percentile method of figuring out the IQ, I decided to try it and didn't regret it`,
+  },
+];
+
 const Pricing = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
@@ -17,168 +57,7 @@ const Pricing = () => {
       id="pricing"
     >
       <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
-        <div className="flex flex-col w-full">
-          <ScrollAnimationWrapper>
-            <motion.h3
-              variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed"
-            >
-              Choose Your Plan
-            </motion.h3>
-            <motion.p
-              variants={scrollAnimation}
-              className="leading-normal w-10/12 sm:w-7/12 lg:w-6/12 mx-auto my-2 text-center"
-            >
-              Let's choose the package that is best for you and explore it
-              happily and cheerfully.
-            </motion.p>
-          </ScrollAnimationWrapper>
-          {/* <div className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-12 py-8 lg:py-12 px-6 sm:px-0 lg:px-6 bg-orange-300">
-            <ScrollAnimationWrapper className="flex justify-center">
-              <motion.div
-                variants={scrollAnimation}
-                className="flex flex-col justify-center items-center border-2 border-gray-500 rounded-xl py-4 px-6 lg:px-12 xl:px-20"
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    duration: 0.2,
-                  },
-                }}
-              >
-                <div className="p-4 lg:p-0 mt-6 lg:mt-16">
-                  <Image
-                    src="/assets/Free.png"
-                    width={145}
-                    height={165}
-                    alt="Free Plan"
-                  />
-                </div>
-                <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Free Plan
-                </p>
-                <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Encrypted Connection
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    No Traffic Logs
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Works on All Devices
-                  </li>
-                </ul>
-                <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
-                  <p className="text-2xl text-black-600 text-center mb-4 ">
-                    Free
-                  </p>
-                  <ButtonOutline>Select</ButtonOutline>
-                </div>
-              </motion.div>
-            </ScrollAnimationWrapper>
-            <ScrollAnimationWrapper className="flex justify-center">
-              <motion.div
-                variants={scrollAnimation}
-                className="flex flex-col justify-center items-center border-2 border-gray-500 rounded-xl py-4 px-6 lg:px-12 xl:px-20"
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    duration: 0.2,
-                  },
-                }}
-              >
-                <div className="p-4 lg:p-0 mt-6 lg:mt-16">
-                  <Image
-                    src="/assets/Standard.png"
-                    width={145}
-                    height={165}
-                    alt="Standard Plan"
-                  />
-                </div>
-                <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Standard Plan{" "}
-                </p>
-                <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Encrypted Connection
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    No Traffic Logs
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Works on All Devices
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Connect Anyware{" "}
-                  </li>
-                </ul>
-                <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
-                  <p className="text-2xl text-black-600 text-center mb-4 ">
-                    $9 <span className="text-black-500">/ mo</span>
-                  </p>
-                  <ButtonOutline>Select</ButtonOutline>
-                </div>
-              </motion.div>
-            </ScrollAnimationWrapper>
-            <ScrollAnimationWrapper className="flex justify-center">
-              <motion.div
-                variants={scrollAnimation}
-                className="flex flex-col justify-center items-center border-2 border-gray-500 rounded-xl py-4 px-6 lg:px-12 xl:px-20"
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    duration: 0.2,
-                  },
-                }}
-              >
-                <div className="p-4 lg:p-0 mt-6 lg:mt-16">
-                  <Image
-                    src="/assets/Premium.png"
-                    width={145}
-                    height={165}
-                    alt="Premium Plan"
-                  />
-                </div>
-                <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Premium Plan{" "}
-                </p>
-                <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Encrypted Connection
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    No Traffic Logs
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Works on All Devices
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Connect Anyware{" "}
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Get New Features{" "}
-                  </li>
-                </ul>
-                <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
-                  <p className="text-2xl text-black-600 text-center mb-4 ">
-                    $12 <span className="text-black-500">/ mo</span>
-                  </p>
-
-                  <ButtonOutline>Select</ButtonOutline>
-                </div>
-              </motion.div>
-            </ScrollAnimationWrapper>
-          </div> */}
-          {/* data */}
-        </div>
+        <div className="flex flex-col w-full">{/* data */}</div>
         <div className="flex flex-col w-full my-16">
           <ScrollAnimationWrapper>
             <motion.h3
@@ -218,10 +97,79 @@ const Pricing = () => {
               These are the stories of our customers who have joined us with
               great pleasure
             </motion.p>
-          </ScrollAnimationWrapper>
-          <ScrollAnimationWrapper className=" ">
+
             <motion.div className="" variants={scrollAnimation}>
-              <Testimoni />
+              <div className="bg-white">
+                {/* <h2 className="text-center text-4xl  tracking-tight text-gray-900 sm:text-3xl">
+          Read trusted reviews from our customers
+        </h2> */}
+                <div className="mt-8 [column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8 ">
+                  {reviews.map((review) => (
+                    <div className="mb-8 sm:break-inside-avoid">
+                      <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                        <div className="flex items-center gap-4">
+                          <img
+                            alt=""
+                            src={review.src}
+                            className="size-4 w-14 h-14 rounded-full object-cover"
+                          />
+                          <div>
+                            <div className="flex justify-center gap-0.5 text-red-500">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
+
+                            <p className="mt-0.5 text-lg font-medium text-gray-900">
+                              {review.name}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="mt-4 text-gray-700">
+                          {review.description}
+                        </p>
+                      </blockquote>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="relative w-full mt-16">

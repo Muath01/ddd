@@ -7,7 +7,7 @@ import { useState } from "react";
 import Clock from "./_components/clock";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Router, { useRouter } from "next/router";
+import Router, { useRouter } from "next/navigation";
 // import Clock from "./Clock";
 function Test() {
   const router = useRouter();
@@ -97,7 +97,7 @@ function Test() {
 
     console.log("tota: ", total);
 
-    // localStorage.setItem("qs4test", total);
+    localStorage.setItem("qs4test", total.toString());
     const testQ = localStorage.getItem("qs4test");
     console.log("TESTFORMSCRE: ", testQ);
     console.log("TOTAL: ", total);
@@ -107,6 +107,7 @@ function Test() {
     //   pathname: "/complete/form",
     //   query: { score },
     // });
+    router.push("/complete/form");
     console.log(score);
   }
 
