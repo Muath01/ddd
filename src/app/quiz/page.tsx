@@ -7,8 +7,10 @@ import { useState } from "react";
 import Clock from "./_components/clock";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import Router, { useRouter } from "next/router";
 // import Clock from "./Clock";
 function Test() {
+  const router = useRouter();
   const [score, setScore] = useState(0);
   const [questions, setQuestion] = useState(questionsList);
   //   const numberOfQuestions = questions[questions.length - 1];
@@ -85,6 +87,28 @@ function Test() {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
+
+  function calculateScore(e: any) {
+    const total = questions.reduce((acc, question) => {
+      return question.selected === question.isCorrect ? acc + 1 : acc;
+    }, 0);
+
+    setScore(total);
+
+    console.log("tota: ", total);
+
+    // localStorage.setItem("qs4test", total);
+    const testQ = localStorage.getItem("qs4test");
+    console.log("TESTFORMSCRE: ", testQ);
+    console.log("TOTAL: ", total);
+    // navigate("/form");
+
+    // router.push({
+    //   pathname: "/complete/form",
+    //   query: { score },
+    // });
+    console.log(score);
+  }
 
   function answerSelection(e: any, question: any, answer: any) {
     // find the question we're just answering, and set it's selected property to the id of the clicked answer.
@@ -190,9 +214,9 @@ function Test() {
               </div>
 
               {/* padding: .75rem 2.5rem; */}
-              <div className="w-full flex  justify-center gap-3 relative md:bottom-16 pb-5 md:pb-0  ">
-                {currentIndex == 19 ? (
-                  <h1 className="text-black text-xs absolute bottom-16 ">
+              <div className="w-full flex  justify-center gap-3 relative md:bottom-16 pb-5 md:pb-0 b  ">
+                {currentQuestion == 19 ? (
+                  <h1 className="text-black text-xs absolute bottom-16 font-bold ">
                     This is the last question on the Test. Click finish once
                     complete
                   </h1>
@@ -210,7 +234,7 @@ function Test() {
                   Next
                 </button>
                 <button
-                  // onClick={(e) => calculateScore(e)}
+                  onClick={(e) => calculateScore(e)}
                   className="text-white-300 cursor-pointer text-[16px] font-[120px] flex items-center justify-center w-28 xl:px-[80px] text-white  border-none rounded-[5px]  transition duration-400 ease bg-[#0d6dfd] hover:bg-[#0d6dfd90]"
                 >
                   Finish
