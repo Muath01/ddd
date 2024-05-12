@@ -63,6 +63,10 @@ li.check:before {
   @apply bg-orange-500 rounded-l-full rounded-r-full w-12;
 }
 
+.selected {
+  border: 5px solid #004483;
+}
+
 /* purgecss end ignore */
 @tailwind utilities;
 /* purgecss start ignore */

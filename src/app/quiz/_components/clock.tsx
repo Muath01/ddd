@@ -1,6 +1,6 @@
 import React from "react";
 import { useCountdown } from "../../../lib/hooks/useCountDown";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 function Clock({ target }: { target: number }) {
   const [minutes, seconds] = useCountdown(target);
