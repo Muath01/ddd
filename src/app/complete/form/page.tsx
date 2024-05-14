@@ -44,7 +44,7 @@ function formPage() {
             asChild
             className="bg-orange-500 rounded-[10px] hover:bg-orange-600"
           >
-            <Link href={"/complete/payment"}>Continue</Link>
+            <Link href={"/complete/payment"}>Finish</Link>
           </Button>
         </CardFooter>
       </Card>
